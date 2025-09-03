@@ -5,9 +5,8 @@
     </div>
     <div>
       <div class="get-started">
-        <a href="">
-          Get Started
-        </a> Building your first robot!
+        <router-link to="/build">Get Started</router-link>
+         Building your first robot!
       </div>
     </div>
   </div>
@@ -24,7 +23,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.home {
+.Home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
   text-align: center;
 }
 
