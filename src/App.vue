@@ -13,6 +13,14 @@
           Build
           </router-link>  
         </li>        
+        <li class = "nav-item cart">
+          <router-link class="nav-link" to='/cart' exact>
+          Cart
+          </router-link>  
+          <div class="cart-items" v-if="cart.length > 0">
+            {{ cart.length }}
+          </div>
+        </li>             
       </ul>
     </nav>
   </header>
@@ -27,9 +35,13 @@
 </template>
 
 <script>
-
 export default {
   name: "App",
+  computed: {
+    cart() {
+      return this.$store.state.cart;
+    }
+  }
 };
 </script>
 
@@ -67,6 +79,13 @@ ul {
   font-size: 22px;
   border-right: 1px solid #bbb;
 }
+
+.nav-item.cart {
+  position: relative;
+  margin-left: auto;
+  border-right: none;
+}
+
 .logo {
   vertical-align: middle;
   height: 30px;
@@ -92,5 +111,15 @@ ul {
   background-color: #eee;
   padding: 30px;
   min-height: 300px;
+}
+.cart-items {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: seagreen;
+  color: white;
+  border-radius: 12px;
+  padding: 2px 6px;
+  font-size: 12px;
 }
 </style>
